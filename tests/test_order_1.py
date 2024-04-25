@@ -1,7 +1,7 @@
 from conftest import driver
 import allure
 from data import URL
-from pages.order_pages_1 import PagesPlacingAnOrder
+from pages.order_pages_1 import PagesPlacingAnOrder1
 
 
 
@@ -10,7 +10,7 @@ class TestOrder1:
     @allure.title("Проверка оформления заказа")
     @allure.description("Оформляем заказ по позитивному сценарию с первым набором данных")
     def test_successful_ordering_1(self, driver):
-        order_pages = PagesPlacingAnOrder(driver)
+        order_pages = PagesPlacingAnOrder1(driver)
         order_pages.open_page(URL.YASCOOTER)
 
         order_pages.click_top_button()

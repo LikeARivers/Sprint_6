@@ -2,7 +2,7 @@ import allure
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
 
-class PagesPlacingAnOrder(BasePage):
+class PagesPlacingAnOrder2(BasePage):
     BOTTOM_BUTTON = (By.XPATH, "//button[@class='Button_Button__ra12g Button_Middle__1CSJM' and text()='Заказать']")
     INPUT_NAME = (By.CSS_SELECTOR, "input[placeholder='* Имя']")
     INPUT_SURNAME = (By.CSS_SELECTOR, "input[placeholder='* Фамилия']")

@@ -1,7 +1,7 @@
 from conftest import driver
 import allure
 from data import URL
-from pages.order_pages_2 import PagesPlacingAnOrder
+from pages.order_pages_2 import PagesPlacingAnOrder2
 import time
 
 
@@ -11,7 +11,7 @@ class TestOrder2:
     @allure.title("Проверка оформления заказа")
     @allure.description("Оформляем заказ по позитивному сценарию со вторым набором данных")
     def test_successful_ordering_1(self, driver):
-        order_pages = PagesPlacingAnOrder(driver)
+        order_pages = PagesPlacingAnOrder2(driver)
         order_pages.open_page(URL.YASCOOTER)
 
         order_pages.scroll_to_bottom_button()
