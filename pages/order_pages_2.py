@@ -21,9 +21,9 @@ class PagesPlacingAnOrder(BasePage):
     INFO_SUCCESSFUL_ORDERING = (By.XPATH, "//div[contains(text(), 'Заказ оформлен')]")
 
     @allure.step('скролл до нижней кнопки Заказать')
-    def scroll_to_bottom_button(self, driver):
+    def scroll_to_bottom_button(self):
         bottom_button = (self.wait_and_find_element(self.BOTTOM_BUTTON))
-        driver.execute_script("arguments[0].scrollIntoView();", bottom_button)
+        self.driver.execute_script("arguments[0].scrollIntoView();", bottom_button)
 
     @allure.step('кликаем на нижнюю кнопку Заказать')
     def click_bottom_button(self):

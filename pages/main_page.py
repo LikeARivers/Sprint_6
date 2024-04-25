@@ -13,9 +13,9 @@ class MainPageQuests(BasePage):
     QUEST_8 = (By.XPATH, "//div[@id = 'accordion__heading-7']")
 
     @allure.step('скролл до Вопроса №1')
-    def scroll_to_quest_1(self, driver):
+    def scroll_to_quest_1(self):
         quest_1 = (self.wait_and_find_element(self.QUEST_1))
-        driver.execute_script("arguments[0].scrollIntoView();", quest_1)
+        self.driver.execute_script("arguments[0].scrollIntoView();", quest_1)
 
     @allure.step('Ищем Вопрос №1 и кликаем на него')
     def find_and_click_quest_1(self):
@@ -23,9 +23,9 @@ class MainPageQuests(BasePage):
         quest_1.click()
 
     @allure.step('скролл до Вопроса №2')
-    def scroll_to_quest_2(self, driver):
+    def scroll_to_quest_2(self):
         quest_2 = (self.wait_and_find_element(self.QUEST_2))
-        driver.execute_script("arguments[0].scrollIntoView();", quest_2)
+        self.driver.execute_script("arguments[0].scrollIntoView();", quest_2)
 
     @allure.step('Ищем Вопрос №2 и кликаем на него')
     def find_and_click_quest_2(self):
@@ -33,9 +33,9 @@ class MainPageQuests(BasePage):
         quest_2.click()
 
     @allure.step('скролл до Вопроса №3')
-    def scroll_to_quest_3(self, driver):
+    def scroll_to_quest_3(self):
         quest_3 = (self.wait_and_find_element(self.QUEST_3))
-        driver.execute_script("arguments[0].scrollIntoView();", quest_3)
+        self.driver.execute_script("arguments[0].scrollIntoView();", quest_3)
 
     @allure.step('Ищем Вопрос №3 и кликаем на него')
     def find_and_click_quest_3(self):
@@ -43,9 +43,9 @@ class MainPageQuests(BasePage):
         quest_3.click()
 
     @allure.step('скролл до Вопроса №4')
-    def scroll_to_quest_4(self, driver):
+    def scroll_to_quest_4(self):
         quest_4 = (self.wait_and_find_element(self.QUEST_4))
-        driver.execute_script("arguments[0].scrollIntoView();", quest_4)
+        self.driver.execute_script("arguments[0].scrollIntoView();", quest_4)
 
     @allure.step('Ищем Вопрос №4 и кликаем на него')
     def find_and_click_quest_4(self):
@@ -53,9 +53,9 @@ class MainPageQuests(BasePage):
         quest_4.click()
 
     @allure.step('скролл до Вопроса №5')
-    def scroll_to_quest_5(self, driver):
+    def scroll_to_quest_5(self):
         quest_5 = (self.wait_and_find_element(self.QUEST_5))
-        driver.execute_script("arguments[0].scrollIntoView();", quest_5)
+        self.driver.execute_script("arguments[0].scrollIntoView();", quest_5)
 
     @allure.step('Ищем Вопрос №5 и кликаем на него')
     def find_and_click_quest_5(self):
@@ -63,9 +63,9 @@ class MainPageQuests(BasePage):
         quest_5.click()
 
     @allure.step('скролл до Вопроса №6')
-    def scroll_to_quest_6(self, driver):
+    def scroll_to_quest_6(self):
         quest_6 = (self.wait_and_find_element(self.QUEST_6))
-        driver.execute_script("arguments[0].scrollIntoView();", quest_6)
+        self.driver.execute_script("arguments[0].scrollIntoView();", quest_6)
 
     @allure.step('Ищем Вопрос №6 и кликаем на него')
     def find_and_click_quest_6(self):
@@ -73,9 +73,9 @@ class MainPageQuests(BasePage):
         quest_6.click()
 
     @allure.step('скролл до Вопроса №7')
-    def scroll_to_quest_7(self, driver):
+    def scroll_to_quest_7(self):
         quest_7 = (self.wait_and_find_element(self.QUEST_7))
-        driver.execute_script("arguments[0].scrollIntoView();", quest_7)
+        self.driver.execute_script("arguments[0].scrollIntoView();", quest_7)
 
     @allure.step('Ищем Вопрос №7 и кликаем на него')
     def find_and_click_quest_7(self):
@@ -83,9 +83,9 @@ class MainPageQuests(BasePage):
         quest_7.click()
 
     @allure.step('скролл до Вопроса №8')
-    def scroll_to_quest_8(self, driver):
+    def scroll_to_quest_8(self):
         quest_8 = (self.wait_and_find_element(self.QUEST_8))
-        driver.execute_script("arguments[0].scrollIntoView();", quest_8)
+        self.driver.execute_script("arguments[0].scrollIntoView();", quest_8)
 
     @allure.step('Ищем Вопрос №8 и кликаем на него')
     def find_and_click_quest_8(self):

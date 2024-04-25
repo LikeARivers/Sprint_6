@@ -13,7 +13,7 @@ class TestBottomButton:
         order_pages = PagesPlacingAnOrder(driver)
         order_pages.open_page(URL.YASCOOTER)
 
-        order_pages.scroll_to_bottom_button(driver)
+        order_pages.scroll_to_bottom_button()
         order_pages.click_bottom_button()
-        current_url = driver.current_url
+        current_url = order_pages.get_current_url()
         assert current_url == "https://qa-scooter.praktikum-services.ru/order"

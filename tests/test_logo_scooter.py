@@ -15,5 +15,5 @@ class TestClickLogoScooter:
 
         logo_scooter_pages.click_top_button()
         logo_scooter_pages.click_logo_scooter()
-        current_url = driver.current_url
+        current_url = logo_scooter_pages.get_current_url()
         assert current_url == URL.YASCOOTER

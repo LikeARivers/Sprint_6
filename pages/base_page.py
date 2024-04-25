@@ -16,3 +16,11 @@ class BasePage:
 
     def open_page(self, url):
         self.driver.get(url)
+
+    def get_current_url(self):
+        return self.driver.current_url
+
+    def switch_to_new_tab(self):
+        all_tabs = self.driver.window_handles
+        new_tab = all_tabs[-1]
+        self.driver.switch_to.window(new_tab)

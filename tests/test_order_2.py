@@ -14,7 +14,7 @@ class TestOrder2:
         order_pages = PagesPlacingAnOrder(driver)
         order_pages.open_page(URL.YASCOOTER)
 
-        order_pages.scroll_to_bottom_button(driver)
+        order_pages.scroll_to_bottom_button()
         order_pages.click_bottom_button()
         order_pages.input_name()
         order_pages.input_surname()

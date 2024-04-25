@@ -13,7 +13,7 @@ class TestQuest7:
         main_page_quest = MainPageQuests(driver)
         main_page_quest.open_page(URL.YASCOOTER)
 
-        main_page_quest.scroll_to_quest_7(driver)
+        main_page_quest.scroll_to_quest_7()
         main_page_quest.find_and_click_quest_7()
         main_page_answer = MainPageAnswers(driver)
         assert main_page_answer.find_answer_7()

@@ -2,7 +2,6 @@ from conftest import driver
 import allure
 from data import URL
 from pages.yandex_pages import PagesLogoYandex
-import time
 
 
 
@@ -16,12 +15,8 @@ class TestClickLogoYandex:
         pages_logo_yandex.open_page(URL.YASCOOTER)
 
         pages_logo_yandex.click_logo_yandex()
-        all_tabs = driver.window_handles
-
-        # Переключиться на последнюю (новую) вкладку
-        new_tab = all_tabs[-1]
-        driver.switch_to.window(new_tab)
+        pages_logo_yandex.switch_to_new_tab()
         pages_logo_yandex.wait_yandex_page()
-        # Получить текущий URL в новой вкладке
-        current_url = driver.current_url
+
+        current_url = pages_logo_yandex.get_current_url()
         assert current_url == URL.YANDEX_ZEN
