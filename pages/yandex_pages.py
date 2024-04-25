@@ -8,10 +8,10 @@ class PagesLogoYandex(BasePage):
 
     @allure.step('кликаем на лого Яндекс')
     def click_logo_yandex(self):
-        logo_yandex = (self.wait_and_find_element(self.LOGO_YANDEX))
+        logo_yandex = self.wait_and_find_element(self.LOGO_YANDEX)
         logo_yandex.click()
 
     @allure.step('ждем загрузку Яндекс Дзен')
     def wait_yandex_page(self):
-        yandex_page = (self.wait_and_find_url(self.LOGO_YANDEX_ZEN))
+        yandex_page = self.wait_and_find_url(self.LOGO_YANDEX_ZEN)
         return yandex_page
