@@ -6,14 +6,14 @@ class BasePage:
         self.driver = driver
 
     def wait_and_find_element(self, locator):
-        WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located(locator))
+        WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located(locator))
         return self.driver.find_element(*locator)
 
     def scroll_into_view(self, element):
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
 
     def wait_and_find_url(self, url):
-        WebDriverWait(self.driver, 5).until(expected_conditions.url_contains(url))
+        WebDriverWait(self.driver, 10).until(expected_conditions.url_contains(url))
         return url
 
 
