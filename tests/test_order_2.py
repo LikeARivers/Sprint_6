@@ -2,7 +2,6 @@ from conftest import driver
 import allure
 from data import URL
 from pages.order_pages_2 import PagesPlacingAnOrder2
-import time
 
 
 
