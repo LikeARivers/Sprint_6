@@ -105,7 +105,7 @@ class PagesPlacingAnOrder(BasePage):
     @allure.step('в поле Когда привезти самокат вводим 02.05.2024')
     def input_date_next_month(self):
         date = self.wait_and_find_element(self.INPUT_DATE)
-        date.send_keys('27.04.2024')
+        date.send_keys('02.05.2024')
 
     @allure.step('кликаем на поле Срок аренды')
     def click_input_rent(self):
