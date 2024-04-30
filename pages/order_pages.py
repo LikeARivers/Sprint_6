@@ -9,12 +9,14 @@ class PagesPlacingAnOrder(BasePage):
     INPUT_SURNAME = (By.CSS_SELECTOR, "input[placeholder='* Фамилия']")
     INPUT_ADDRESS = (By.CSS_SELECTOR, "input[placeholder='* Адрес: куда привезти заказ']")
     INPUT_SUBWAY = (By.CSS_SELECTOR, "input[placeholder='* Станция метро']")
-    LIST_SUBWAY = [By.XPATH, f'.//div[@class = "select-search__select"]//div[text()="Сокольники"]']
+    LIST_SUBWAY_SOK = [By.XPATH, f'.//div[@class = "select-search__select"]//div[text()="Сокольники"]']
+    LIST_SUBWAY_PREOB = [By.XPATH, f'.//div[@class = "select-search__select"]//div[text()="Преображенская площадь"]']
     INPUT_PHONE_NUMBER = (By.CSS_SELECTOR, "input[placeholder='* Телефон: на него позвонит курьер']")
     NEXT_BUTTON = (By.XPATH, "//button[text()='Далее']")
     INPUT_DATE = (By.CSS_SELECTOR, "input[placeholder='* Когда привезти самокат']")
     INPUT_RENT = (By.XPATH, "//div[@class='Dropdown-placeholder' and text()='* Срок аренды']")
-    LIST_RENT = (By.XPATH, "//div[@class='Dropdown-option' and text()='сутки']")
+    LIST_RENT_ONE = (By.XPATH, "//div[@class='Dropdown-option' and text()='сутки']")
+    LIST_RENT_TWO = (By.XPATH, "//div[@class='Dropdown-option' and text()='двое суток']")
     BLACK_CHECKBOX = (By.ID, "black")
     INPUT_COMMENT = (By.CSS_SELECTOR, "input[placeholder='Комментарий для курьера']")
     FINISH_ORDER_BUTTON = (By.XPATH, "//div[@class='Order_Buttons__1xGrp']//button[contains(text(), 'Заказать')]")
@@ -37,35 +39,20 @@ class PagesPlacingAnOrder(BasePage):
         bottom_button = self.wait_and_find_element(self.BOTTOM_BUTTON)
         bottom_button.click()
 
-    @allure.step('в поле Имя вводим Ян')
-    def input_short_name(self):
+    @allure.step('в поле Имя вводим {first_name}')
+    def input_name(self, first_name):
         name = self.wait_and_find_element(self.INPUT_NAME)
-        name.send_keys('Ян')
+        name.send_keys(first_name)
 
-    @allure.step('в поле Имя вводим Константин')
-    def input_long_name(self):
-        name = self.wait_and_find_element(self.INPUT_NAME)
-        name.send_keys('Константин')
-
-    @allure.step('в поле Фамилия вводим Ки')
-    def input_short_surname(self):
+    @allure.step('в поле Фамилия вводим {family_name}')
+    def input_surname(self, family_name):
         surname = self.wait_and_find_element(self.INPUT_SURNAME)
-        surname.send_keys('Ки')
+        surname.send_keys(family_name)
 
-    @allure.step('в поле Фамилия вводим Константинов')
-    def input_long_surname(self):
-        surname = self.wait_and_find_element(self.INPUT_SURNAME)
-        surname.send_keys('Константинов')
-
-    @allure.step('в поле Адрес вводим Улица')
-    def input_short_address(self):
+    @allure.step('в поле Адрес вводим {street}')
+    def input_address(self, street):
         address = self.wait_and_find_element(self.INPUT_ADDRESS)
-        address.send_keys('Улица')
-
-    @allure.step('в поле Адрес вводим Улица-Улица-Улица')
-    def input_long_address(self):
-        address = self.wait_and_find_element(self.INPUT_ADDRESS)
-        address.send_keys('Улица-Улица-Улица')
+        address.send_keys(street)
 
     @allure.step('кликаем на поле Станция метро')
     def click_input_subway(self):
@@ -73,39 +60,29 @@ class PagesPlacingAnOrder(BasePage):
         input_subway.click()
 
     @allure.step('кликаем на станцию Сокольники в выпадающем списке')
-    def click_list_subway_without_space(self):
-        list_subway = self.wait_and_find_element(self.LIST_SUBWAY)
+    def click_list_subway_sok(self):
+        list_subway = self.wait_and_find_element(self.LIST_SUBWAY_SOK)
         list_subway.click()
 
     @allure.step('кликаем на станцию Преображенская площадь в выпадающем списке')
-    def click_list_subway_with_space(self):
-        list_subway = self.wait_and_find_element(self.LIST_SUBWAY)
+    def click_list_subway_preob(self):
+        list_subway = self.wait_and_find_element(self.LIST_SUBWAY_PREOB)
         list_subway.click()
 
-    @allure.step('в поле Телефон вводим +7123456789')
-    def input_phone_short_number(self):
+    @allure.step('в поле Телефон вводим {number}')
+    def input_phone_number(self, number):
         phone_number = self.wait_and_find_element(self.INPUT_PHONE_NUMBER)
-        phone_number.send_keys('+7123456789')
-
-    @allure.step('в поле Телефон вводим +712312312312')
-    def input_phone_long_number(self):
-        phone_number = self.wait_and_find_element(self.INPUT_PHONE_NUMBER)
-        phone_number.send_keys('+712312312312')
+        phone_number.send_keys(number)
 
     @allure.step('кликаем на кнопку Далее')
     def click_next_button(self):
         next_button = self.wait_and_find_element(self.NEXT_BUTTON)
         next_button.click()
 
-    @allure.step('в поле Когда привезти самокат вводим 30.04.2024')
-    def input_date_present_month(self):
+    @allure.step('в поле Когда привезти самокат вводим {day}')
+    def input_date_month(self, day):
         date = self.wait_and_find_element(self.INPUT_DATE)
-        date.send_keys('30.04.2024')
-
-    @allure.step('в поле Когда привезти самокат вводим 02.05.2024')
-    def input_date_next_month(self):
-        date = self.wait_and_find_element(self.INPUT_DATE)
-        date.send_keys('02.05.2024')
+        date.send_keys(day)
 
     @allure.step('кликаем на поле Срок аренды')
     def click_input_rent(self):
@@ -114,12 +91,12 @@ class PagesPlacingAnOrder(BasePage):
 
     @allure.step('из выпадающего списка выбираем сутки')
     def click_list_rent_one(self):
-        list_rent = self.wait_and_find_element(self.LIST_RENT)
+        list_rent = self.wait_and_find_element(self.LIST_RENT_ONE)
         list_rent.click()
 
     @allure.step('из выпадающего списка выбираем двое суток')
     def click_list_rent_two(self):
-        list_rent = self.wait_and_find_element(self.LIST_RENT)
+        list_rent = self.wait_and_find_element(self.LIST_RENT_TWO)
         list_rent.click()
 
     @allure.step('нажимаем чек-бокс черный жемчуг')
@@ -127,10 +104,10 @@ class PagesPlacingAnOrder(BasePage):
         black_checkbox = self.wait_and_find_element(self.BLACK_CHECKBOX)
         black_checkbox.click()
 
-    @allure.step('в поле комментарий вводим Позвони по номеру телефона')
-    def input_comment(self):
+    @allure.step('в поле комментарий вводим {text}')
+    def input_comment(self, text):
         comment = self.wait_and_find_element(self.INPUT_COMMENT)
-        comment.send_keys('Позвони по номеру телефона')
+        comment.send_keys(text)
 
     @allure.step('кликаем на кнопку Заказать')
     def finish_order_button(self):
